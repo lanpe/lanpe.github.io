@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SearchQucikly</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <link rel="stylesheet" href="search.css">
+    <link rel="shortcut icon" href="images/icon.png">
+
+</head>
+<body>
+    <div id="a1">
+        <img src="images/a1.png" alt="">
+    </div>
+    <div id="a2">CONTACT US</div>
+    <div id="b1">
+        <img src="images/b1.png" alt="">
+    </div>
+    <div id="line"></div>
+    <div id="search">
+        <form :action="changeAction" target="" >
+            <input type="text" :name="changeName" placeholder="   Search..." autofocus="autofocus" >
+            <div id="c">
+                <button class="button" @click="bing" id="bing"></button>
+                <button class="button" @click="google" id="google"></button>
+                <button class="button" @click="sogou" id="sogou"></button>
+                <button class="button" @click="baidu" id="baidu"></button>
+            </div>
+            
+        </form>
+        <!-- <button @click="clear">66</button> -->
+    </div>
+    <!-- <div id="d">
+        <img src="images/bing.png" alt="" id="c1" >
+        <img src="images/google.png" alt="">
+        <img src="images/sogou.png" alt="">
+        <img src="images/baidu.png" alt="">
+    </div> -->
+
+
+    <script>
+        var search = new Vue({
+            el: "#search",
+            data: {
+                message: 'Hello Vuu!',
+                changeAction: "https://www.bing.com/search?",
+                changeName: "q",
+                // none: "kkkk"
+            },
+            methods: {
+                bing:function(){
+                    this.changeAction="https://www.bing.com/search?";
+                    this.changeName="q"
+                },
+                baidu:function(){
+                    this.changeAction="https://www.baidu.com/s?";
+                    this.changeName="wd"
+                },
+                sogou:function(){
+                    this.changeAction="https://www.sogou.com/web?";
+                    this.changeName="query"
+                },
+                google:function(){
+                    this.changeAction="https://www.google.com.hk/search?q";
+                    this.changeName="q"
+                },
+                clear:function(){
+                    this.none = ""
+                }
+            },
+        })
+        
+    </script>
+</body>
+</html>
